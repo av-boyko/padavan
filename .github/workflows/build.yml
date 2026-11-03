@@ -271,7 +271,7 @@ jobs:
           else
             echo "board does not use strongswan; skipping download"
           fi
-
+  
       - name: Install Padavan themes
         run: |
           set -euo pipefail
@@ -283,11 +283,9 @@ jobs:
           WEB="trunk/user/www/n56u_ribbon_fixed"
           THEMES="/tmp/padavan-themes"
 
-          # Файлы тем
+          # Общие ресурсы и тема Grey2
           cp -R "$THEMES/common-theme" "$WEB/"
           cp -R "$THEMES/grey2-theme" "$WEB/"
-          cp -R "$THEMES/white-theme" "$WEB/"
-          cp -R "$THEMES/blue2-theme" "$WEB/"
 
           # Переключатель оформления
           sed -n \
@@ -302,10 +300,9 @@ jobs:
 
           # Проверка
           test -f "$WEB/grey2-theme/css/main.css"
-          test -f "$WEB/white-theme/css/main.css"
-          test -f "$WEB/blue2-theme/css/main.css"
 
-          echo "Themes installed"
+          echo "Grey2 theme installed"
+
 
       - name: Build firmware
         working-directory: trunk
